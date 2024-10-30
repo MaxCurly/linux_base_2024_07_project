@@ -2,10 +2,10 @@ all:
   children:
     lb:
       hosts:
-        lb[01:02].local
+        lb[01:02]
 
   hosts:
-    lb01.local:
+    lb01:
       ansible_host: 10.10.5.101
-    lb02.local:
+    lb02:
       ansible_host: 10.10.5.102

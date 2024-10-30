@@ -1,0 +1,35 @@
+---
+# tasks file for deploy_prometheus
+
+- name: create a directory
+  ansible.builtin.file:
+    path: "{{ deploy_prometheus_project_src }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: copy a file prometheus.yml
+  ansible.builtin.copy:
+    src: prometheus.yml
+    dest: "{{ deploy_prometheus_project_src }}/prometheus.yml"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: true
+  notify: restart_prometheus
+
+- name: template a file docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ deploy_prometheus_project_src }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: true
+  notify: restart_prometheus
+
+- name: Create and start prometheus
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_prometheus_project_src }}"
+    state: present

@@ -1,0 +1,6 @@
+---
+# vars file for deploy_prometheus
+
+deploy_prometheus_data_src      : /mnt/nfs/prometheus
+deploy_prometheus_project_src   : /etc/docker/prometheus
+deploy_prometheus_image_version : v2.55.0
