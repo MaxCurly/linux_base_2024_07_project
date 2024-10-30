@@ -2,4 +2,4 @@
 # vars file for deploy_cadvisor
 
 deploy_cadvisor_project_src   : /etc/docker/cadvisor
-deploy_cadvisor_image_version : latest
+deploy_cadvisor_image_version : v0.49.1
