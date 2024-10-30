@@ -1,2 +1,5 @@
 ---
 # vars file for deploy_node_exporter
+
+deploy_node_exporter_project_src   : /etc/docker/node-exporter
+deploy_node_exporter_image_version : v1.8.2
