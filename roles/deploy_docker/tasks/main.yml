@@ -1,0 +1,15 @@
+---
+# tasks file for deploy_docker
+
+- name: install docker.io and docker-compose-v2
+  ansible.builtin.apt:
+    name: 
+      - docker.io
+      - docker-compose-v2
+    state: latest
+
+- name: start and enable docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
