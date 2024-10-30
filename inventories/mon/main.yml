@@ -1,0 +1,9 @@
+all:
+  children:
+    mon:
+      hosts:
+        mon01
+
+  hosts:
+    mon01:
+      ansible_host: 10.10.5.107

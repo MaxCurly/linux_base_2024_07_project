@@ -1,0 +1,6 @@
+---
+# vars file for deploy_grafana
+
+deploy_grafana_data_src      : /mnt/nfs/grafana
+deploy_grafana_project_src   : /etc/docker/grafana
+deploy_grafana_image_version : 11.3.0-ubuntu

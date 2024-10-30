@@ -1,0 +1,7 @@
+---
+# handlers file for deploy_node_exporter
+
+- name: restart_node_exporter
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_node_exporter_project_src }}"
+    state: restarted

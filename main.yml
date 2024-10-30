@@ -1,0 +1,12 @@
+---
+# main playbook for deploy/restore "linux_base_2024_07 infrastructure"
+
+- name: start universal playbook
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: run roles dinamicaly besed on inventory vars
+      include_role:
+        name: "{{ item }}"
+      loop: "{{ inventory_roles }}"

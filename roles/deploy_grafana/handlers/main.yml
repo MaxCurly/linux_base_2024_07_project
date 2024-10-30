@@ -1,0 +1,7 @@
+---
+# handlers file for deploy_grafana
+
+- name: restart_grafana
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_grafana_project_src }}"
+    state: restarted

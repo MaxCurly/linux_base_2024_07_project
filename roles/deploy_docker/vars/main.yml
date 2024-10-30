@@ -1,0 +1,5 @@
+---
+# vars file for deploy_docker
+
+deploy_docker_docker_io_ver         : 24.0.7-0ubuntu2~22.04.1
+deploy_docker_docker_compose_v2_ver : 2.24.6+ds1-0ubuntu1~22.04.1

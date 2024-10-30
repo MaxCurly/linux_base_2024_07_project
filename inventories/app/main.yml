@@ -1,0 +1,11 @@
+all:
+  children:
+    app:
+      hosts:
+        app[01:02]
+
+  hosts:
+    app01:
+      ansible_host: 10.10.5.103
+    app02:
+      ansible_host: 10.10.5.104
