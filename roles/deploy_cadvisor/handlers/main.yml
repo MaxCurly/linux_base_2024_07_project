@@ -1,0 +1,7 @@
+---
+# handlers file for deploy_cadvisor
+
+- name: restart_cadvisor
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_cadvisor_project_src }}"
+    state: restarted
