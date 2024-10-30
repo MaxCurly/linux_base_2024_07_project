@@ -1,0 +1,9 @@
+all:
+  children:
+    log:
+      hosts:
+        log01.local
+
+  hosts:
+    log01.local:
+      ansible_host: 10.10.5.108
