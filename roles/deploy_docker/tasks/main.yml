@@ -6,7 +6,7 @@
     name: 
       - "docker.io={{ deploy_docker_docker_io_ver }}"
       - "docker-compose-v2={{ deploy_docker_docker_compose_v2_ver }}"
-    state: latest
+    state: present
 
 - name: start and enable docker
   ansible.builtin.service:
