@@ -1,0 +1,25 @@
+---
+# tasks file for deploy_grafana
+
+- name: create a directory
+  ansible.builtin.file:
+    path: "{{ deploy_grafana_project_src }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: template a file docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ deploy_grafana_project_src }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: '0664'
+    backup: true
+  notify: restart_grafana
+
+- name: create and start grafana
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_grafana_project_src }}"
+    state: present

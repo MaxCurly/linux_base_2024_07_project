@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+ 
+  grafana:
+    image: grafana/grafana:{{ deploy_grafana_image_version }}
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - {{ deploy_grafana_data_src }}:/var/lib/grafana:rw
+    environment:
+      TZ: "Europe/Moscow"

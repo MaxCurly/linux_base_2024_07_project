@@ -4,3 +4,4 @@ inventory_roles:
   - deploy_node_exporter
   - deploy_cadvisor
   - deploy_prometheus
+  - deploy_grafana
