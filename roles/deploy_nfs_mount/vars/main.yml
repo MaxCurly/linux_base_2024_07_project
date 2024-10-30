@@ -1,0 +1,4 @@
+---
+# vars file for deploy_nfs_mount
+deploy_nfs_moumt_src : 10.10.4.1:/mnt/pve/ext4_md0/nfs/linux_base_2024_07_project
+deploy_nfs_moumt_dst : /mnt/nfs/
