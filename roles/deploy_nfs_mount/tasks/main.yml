@@ -3,8 +3,8 @@
 
 - name: install nfs-common
   ansible.builtin.apt:
-    name: nfs-common
-    state: latest
+    name: "nfs-common={{ deploy_nfs_mount_nfs_common_ver }}"
+    state: present
 
 - name: Create a directory
   ansible.builtin.file:
