@@ -1,2 +1,3 @@
 inventory_roles:
   - deploy_nfs_mount
+  - deploy_docker
