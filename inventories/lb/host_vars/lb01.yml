@@ -1,0 +1,3 @@
+    deploy_keepalived_router_id   : lb01
+    deploy_keepalived_state       : MASTER
+    deploy_keepalived_priority    : 101

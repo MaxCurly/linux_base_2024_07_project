@@ -1,0 +1,3 @@
+    deploy_keepalived_router_id   : lb02
+    deploy_keepalived_state       : BACKUP
+    deploy_keepalived_priority    : 100

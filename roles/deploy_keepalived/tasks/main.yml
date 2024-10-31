@@ -1,0 +1,23 @@
+---
+# tasks file for deploy_keepalived
+
+- name: install keepalived
+  ansible.builtin.apt:
+    name: keepalived
+    state: latest
+
+- name: Template a file keepalived.conf.j2
+  ansible.builtin.template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+    mode: '0644'
+    backup: true
+  notify: restart_keepalived
+
+- name: start and enable keepalived
+  ansible.builtin.service:
+    name: keepalived
+    state: started
+    enabled: yes
