@@ -5,6 +5,7 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:{{ deploy_cadvisor_image_version }}
     container_name: cadvisor
+    restart: always
     ports:
     - 8888:8080
     volumes:
