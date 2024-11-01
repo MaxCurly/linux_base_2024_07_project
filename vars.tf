@@ -6,7 +6,7 @@ variable "virtual_machines" {
             description = "lb01.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.101/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -21,7 +21,7 @@ variable "virtual_machines" {
             description = "lb02.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.102/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -36,7 +36,7 @@ variable "virtual_machines" {
             description = "app01.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.103/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -51,7 +51,7 @@ variable "virtual_machines" {
             description = "app02.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.104/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -66,7 +66,7 @@ variable "virtual_machines" {
             description = "db01.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.105/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -81,7 +81,7 @@ variable "virtual_machines" {
             description = "db02.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.106/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -96,7 +96,7 @@ variable "virtual_machines" {
             description = "mon01.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.107/24"
             gateway = "10.10.5.254",
             target_node = "pve",
@@ -111,7 +111,7 @@ variable "virtual_machines" {
             description = "log01.local"
             tags = "tofu,linux,ubuntu"
             vm_state = "running"
-            protection = "true"
+            protection = "false"
             ip_address = "10.10.5.108/24"
             gateway = "10.10.5.254",
             target_node = "pve",

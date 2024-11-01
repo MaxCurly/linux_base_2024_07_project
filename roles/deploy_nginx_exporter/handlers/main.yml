@@ -1,0 +1,7 @@
+---
+# handlers file for deploy_nginx_exporter
+
+- name: restart_nginx_exporter
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_nginx_exporter_project_src }}"
+    state: restarted

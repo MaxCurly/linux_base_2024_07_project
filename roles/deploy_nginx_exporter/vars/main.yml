@@ -1,0 +1,5 @@
+---
+# vars file for deploy_nginx_exporter
+
+deploy_nginx_exporter_project_src   : /etc/docker/nginx-exporter
+deploy_nginx_exporter_image_version : 1.3
