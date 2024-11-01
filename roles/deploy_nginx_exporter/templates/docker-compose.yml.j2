@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+ 
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:{{ deploy_nginx_exporter_image_version }}
+    container_name: nginx-exporter
+    restart: always
+    ports:
+      - 9113:9113
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - --nginx.scrape-uri=https://project.local/status

@@ -3,5 +3,6 @@ inventory_roles:
   - deploy_docker
   - deploy_node_exporter
   - deploy_cadvisor
+  - deploy_nginx_exporter
   - deploy_keepalived
   - deploy_nginx_reverse_proxy
