@@ -1,6 +1,7 @@
 ---
 # vars file for deploy_keepalived
 
+deploy_keepalived_ver                      : 1:2.2.4-0.2build1
 deploy_keepalived_auth_pass                : !vault |
           $ANSIBLE_VAULT;1.1;AES256
           33663432356437376430646363363439373363393732333263653734656432323434613865323736

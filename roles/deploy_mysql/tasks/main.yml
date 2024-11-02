@@ -1,0 +1,99 @@
+---
+# tasks file for deploy_mysql
+
+- name: create a directory
+  ansible.builtin.file:
+    path: "{{ deploy_mysql_project_src }}"
+    state: directory
+    mode: '0777'
+    owner: root
+    group: root
+
+- name: create a directory
+  ansible.builtin.file:
+    path: "{{ deploy_mysql_project_src }}/data"
+    state: directory
+    mode: '0777'
+    owner: root
+    group: root
+
+- name: template a file my.cnf
+  ansible.builtin.template:
+    src: my.cnf.j2
+    dest: "{{ deploy_mysql_project_src }}/my.cnf"
+    owner: root
+    group: root
+    mode: '0444'
+    backup: true
+  notify: restart_mysql
+
+- name: template a file docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ deploy_mysql_project_src }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: true
+  notify: restart_mysql
+
+- name: create and start mysql
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_mysql_project_src }}"
+    state: present
+
+- name: Pause for 15 seconds while mysql is starting
+  ansible.builtin.pause:
+    seconds: 15
+
+- name: install PyMySQL
+  ansible.builtin.pip:
+    name: "PyMySQL=={{ deploy_PyMySQL_ver }}"
+
+- name: create replicator user
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: "{{ deploy_mysql_root_pass }}"
+    name: "replica"
+    host: "{{ deploy_sql_slave_ip }}"
+    password: "{{ deploy_mysql_replica_pass }}"
+    priv: "*.*:REPLICATION SLAVE"
+    state: present
+  when: deploy_mysql_role == "master"
+
+- name: change master to
+  community.mysql.mysql_replication:
+     mode: changeprimary
+     master_host: "{{ deploy_sql_master_ip }}"
+     master_user: replica
+     master_password: "{{ deploy_mysql_replica_pass }}"
+     master_auto_position: true
+     login_user: root
+     login_password: "{{ deploy_mysql_root_pass }}"
+  when: deploy_mysql_role == 'slave'
+
+- name: start replica
+  community.mysql.mysql_replication:
+     mode: startreplica
+     login_user: root
+     login_password: "{{ deploy_mysql_root_pass }}"
+  when: deploy_mysql_role == "slave"
+
+- name: create database with name 'project'
+  community.mysql.mysql_db:
+    login_user: root
+    login_password: "{{ deploy_mysql_root_pass }}"
+    name: "{{ deploy_mysql_project_database }}"
+    state: present
+  when: deploy_mysql_role == "master"
+
+- name: create database user
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: "{{ deploy_mysql_root_pass }}"
+    name: "project"
+    host: '%'
+    password: "{{ deploy_mysql_project_pass }}"
+    priv: "project.*:ALL"
+    state: present
+  when: deploy_mysql_role == "master"

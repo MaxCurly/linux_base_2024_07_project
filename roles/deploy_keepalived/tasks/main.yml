@@ -3,8 +3,8 @@
 
 - name: install keepalived
   ansible.builtin.apt:
-    name: keepalived
-    state: latest
+    name: "keepalived={{ deploy_keepalived_ver }}"
+    state: present
 
 - name: Template a file keepalived.conf.j2
   ansible.builtin.template:

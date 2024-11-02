@@ -1,0 +1,12 @@
+---
+# vars file for deploy_mysql
+
+deploy_mysql_root_pass        : root
+deploy_mysql_project_src      : /etc/docker/mysql
+deploy_mysql_image_version    : 8.0.39
+deploy_PyMySQL_ver            : 1.1.1
+deploy_sql_master_ip          : 10.10.5.105
+deploy_sql_slave_ip           : 10.10.5.106
+deploy_mysql_replica_pass     : 12345
+deploy_mysql_project_database : project
+deploy_mysql_project_pass     : project
