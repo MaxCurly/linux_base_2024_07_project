@@ -2,8 +2,8 @@ global_defs {
   router_id {{ deploy_keepalived_router_id }} 
 }
 
-vrrp_script check_nginx {
-  script "/usr/bin/curl -k https://localhost"
+vrrp_script check_service {
+  script "/usr/bin/curl -k http://localhost"
   interval 2
   weight 2
 }
@@ -22,6 +22,6 @@ vrrp_instance 1 {
      10.10.5.100/24
         }
 track_script {
-     check_nginx
+     check_service
         }
 }

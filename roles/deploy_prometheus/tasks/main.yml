@@ -29,7 +29,7 @@
     backup: true
   notify: restart_prometheus
 
-- name: Create and start prometheus
+- name: create and start prometheus
   community.docker.docker_compose_v2:
     project_src: "{{ deploy_prometheus_project_src }}"
     state: present

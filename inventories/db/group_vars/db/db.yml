@@ -1,0 +1,4 @@
+deploy_mysql_root_pass : test
+deploy_mysql_db        : test
+deploy_mysql_db_user   : test
+deploy_mysql_db_pass   : test
