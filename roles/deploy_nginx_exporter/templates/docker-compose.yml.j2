@@ -13,4 +13,4 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
     command:
-      - --nginx.scrape-uri=https://project.local/status
+      - --nginx.scrape-uri=http://{{ ansible_host }}/status

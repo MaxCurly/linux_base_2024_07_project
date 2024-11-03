@@ -19,7 +19,7 @@
     backup: true
   notify: restart_cadvisor
 
-- name: Create and start cadvisor
+- name: create and start cadvisor
   community.docker.docker_compose_v2:
     project_src: "{{ deploy_cadvisor_project_src }}"
     state: present

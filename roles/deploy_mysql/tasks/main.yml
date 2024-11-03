@@ -42,7 +42,7 @@
     project_src: "{{ deploy_mysql_project_src }}"
     state: present
 
-- name: Pause for 15 seconds while mysql is starting
+- name: pause for 15 seconds while mysql is starting
   ansible.builtin.pause:
     seconds: 15
 
@@ -54,18 +54,18 @@
   community.mysql.mysql_user:
     login_user: root
     login_password: "{{ deploy_mysql_root_pass }}"
-    name: "replica"
+    name: "{{ deploy_mysql_replica_user }}"
     host: "{{ deploy_sql_slave_ip }}"
     password: "{{ deploy_mysql_replica_pass }}"
     priv: "*.*:REPLICATION SLAVE"
     state: present
   when: deploy_mysql_role == "master"
 
-- name: change master to
+- name: change master on slave
   community.mysql.mysql_replication:
      mode: changeprimary
      master_host: "{{ deploy_sql_master_ip }}"
-     master_user: replica
+     master_user: "{{ deploy_mysql_replica_user }}"
      master_password: "{{ deploy_mysql_replica_pass }}"
      master_auto_position: true
      login_user: root
@@ -79,11 +79,11 @@
      login_password: "{{ deploy_mysql_root_pass }}"
   when: deploy_mysql_role == "slave"
 
-- name: create database with name 'project'
+- name: create database
   community.mysql.mysql_db:
     login_user: root
     login_password: "{{ deploy_mysql_root_pass }}"
-    name: "{{ deploy_mysql_project_database }}"
+    name: "{{ deploy_mysql_db_name }}"
     state: present
   when: deploy_mysql_role == "master"
 
@@ -91,9 +91,9 @@
   community.mysql.mysql_user:
     login_user: root
     login_password: "{{ deploy_mysql_root_pass }}"
-    name: "project"
+    name: "{{ deploy_mysql_db_user }}"
     host: '%'
-    password: "{{ deploy_mysql_project_pass }}"
-    priv: "project.*:ALL"
+    password: "{{ deploy_mysql_db_password }}"
+    priv: "{{ deploy_mysql_db_name }}.*:ALL"
     state: present
   when: deploy_mysql_role == "master"

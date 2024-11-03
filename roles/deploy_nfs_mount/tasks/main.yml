@@ -6,7 +6,7 @@
     name: "nfs-common={{ deploy_nfs_mount_nfs_common_ver }}"
     state: present
 
-- name: Create a directory
+- name: create a directory
   ansible.builtin.file:
     path: "{{ deploy_nfs_moumt_dst }}"
     state: directory

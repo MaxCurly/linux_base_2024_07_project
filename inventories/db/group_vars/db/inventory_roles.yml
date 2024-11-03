@@ -1,5 +1,7 @@
 inventory_roles:
   - deploy_nfs_mount
   - deploy_docker
+  - deploy_pip
   - deploy_node_exporter
   - deploy_cadvisor
+  - deploy_mysql

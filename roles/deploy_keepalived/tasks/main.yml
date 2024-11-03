@@ -6,7 +6,7 @@
     name: "keepalived={{ deploy_keepalived_ver }}"
     state: present
 
-- name: Template a file keepalived.conf.j2
+- name: template a file keepalived.conf.j2
   ansible.builtin.template:
     src: keepalived.conf.j2
     dest: /etc/keepalived/keepalived.conf
