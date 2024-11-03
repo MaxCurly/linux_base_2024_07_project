@@ -116,8 +116,8 @@ variable "virtual_machines" {
             gateway = "10.10.5.254",
             target_node = "pve",
             cpu_cores = 1,
-            memory = "1024",
-            hdd_size = "10G",
+            memory = "4096",
+            hdd_size = "30G",
             vm_template = "ubuntu-22.04.4-cloud-template",
         }
     }
