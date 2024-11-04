@@ -12,7 +12,8 @@ Ansible роль "deploy_cadvisor"
 --------------------
 
 deploy_cadvisor_project_src   - рабочая директория для docker-compose-v2
-deploy_cadvisor_image_version - версия docker обзара cadvisor
+
+deploy_cadvisor_image_version - версия docker обзара cadvisor, которая будет развернута
 
 Информация об авторе:
 ---------------------

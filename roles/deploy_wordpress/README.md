@@ -1,38 +1,33 @@
-Role Name
+Ansible роль "deploy_wordpress"
 =========
 
-A brief description of the role goes here.
+Данная роль служит для развертывания веб-сервера "nginx+wordpress".
 
-Requirements
-------------
+Требования:
+-----------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+На целевом хосте должны быть установлены пакеты docker.io и docker-compose-v2.
 
-Role Variables
---------------
+Переменные для роли:
+--------------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+deploy_wordpress_data_src            - рабочая директория для сохранения данных приложений
 
-Dependencies
-------------
+deploy_wordpress_project_src         - рабочая директория для docker-compose-v2
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+deploy_wordpress_nginx_image_version - версия docker обзара nginx, которая будет развернута
 
-Example Playbook
-----------------
+deploy_wordpress_image_version       - версия docker обзара wordpress, которая будет развернута
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+deploy_wordpress_db_host             - ip адресс хоста, на котором развернута база данных 
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+deploy_wordpress_db_name             - имя базы данных 
 
-License
--------
+deploy_wordpress_db_user             - имя пользователя для доступа к базе данных
 
-BSD
+deploy_wordpress_db_password         - пароль пользователя для доступа к базе данных
 
-Author Information
-------------------
+Информация об авторе:
+---------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Автор: MaxCurly (Maxim Kudryashov m.v.kudryashov@ya.ru)
