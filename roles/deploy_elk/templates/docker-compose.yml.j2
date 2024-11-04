@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+ 
+  elasticsearch:
+    image: elasticsearch:{{ deploy_elk_elasticsearch_image_version }}
+    container_name: elasticsearch
+    restart: always
+    volumes:
+      - {{ deploy_elk_project_src }}/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - {{ deploy_elk_data_src }}/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ELASTIC_USERNAME: "test"
+      ELASTIC_PASSWORD: "test12345"
+      discovery.type: single-node
+
+  logstash:
+    image: logstash:{{ deploy_elk_logstash_image_version }}
+    container_name: logstash
+    restart: always
+    volumes:
+      - {{ deploy_elk_project_src }}/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml:rw
+      - {{ deploy_elk_project_src }}/logstash/conf.d/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:rw
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+      xpack.monitoring.enabled: false
+
+  kibana:
+    image: kibana:{{ deploy_elk_kibana_image_version }}
+    container_name: kibana
+    restart: always
+    volumes:
+      - {{ deploy_elk_project_src }}/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+    ports:
+      - "5601:5601"

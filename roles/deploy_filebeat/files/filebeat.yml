@@ -1,0 +1,17 @@
+filebeat.inputs:
+- type: filestream
+  id: my-filestream-id
+  enabled: true
+  paths:
+    - /var/log/*.log
+    - /var/lib/docker/containers/*/*.log
+  exclude_files: ['.gz$']
+  prospector.scanner.exclude_files: ['.gz$']
+
+output.logstash:
+  enabled: true
+  hosts: ["10.10.5.108:5044"]
+
+setup.kibana:
+  host: "http://10.10.5.108:5601"
+  username: "test"
