@@ -1,196 +1,69 @@
-# linux_base_2024_07_project
-linux_base_2024_07_project
+Автоматизация развертывания и аварийного восстановления виртуальной инфраструктуры
+============================
 
+Данный репозиторий содержит код автоматизации развертывания и аварийного восстановления виртуальной инфраструктуры.
 
-linux_base_2024_07_project
-├── README.md
-├── ansible.cfg
-├── inventories
-│   ├── app
-│   │   ├── group_vars
-│   │   │   └── app
-│   │   │       └── inventory_roles.yml
-│   │   └── main.yml
-│   ├── db
-│   │   ├── group_vars
-│   │   │   └── db
-│   │   │       ├── db.yml
-│   │   │       └── inventory_roles.yml
-│   │   ├── host_vars
-│   │   │   ├── db01.yml
-│   │   │   └── db02.yml
-│   │   └── main.yml
-│   ├── lb
-│   │   ├── group_vars
-│   │   │   └── lb
-│   │   │       └── inventory_roles.yml
-│   │   ├── host_vars
-│   │   │   ├── lb01.yml
-│   │   │   └── lb02.yml
-│   │   └── main.yml
-│   ├── log
-│   │   ├── group_vars
-│   │   │   └── log
-│   │   │       └── inventory_roles.yml
-│   │   └── main.yml
-│   └── mon
-│       ├── group_vars
-│       │   └── mon
-│       │       └── inventory_roles.yml
-│       └── main.yml
-├── main.tf
-├── main.yml
-├── provider.tf
-├── roles
-│   ├── deploy_cadvisor
-│   │   ├── README.md
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_docker
-│   │   ├── README.md
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_elk
-│   │   ├── README.md
-│   │   ├── files
-│   │   │   ├── elasticsearch.yml
-│   │   │   ├── kibana.yml
-│   │   │   ├── logstash.yml
-│   │   │   └── pipeline.conf
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_filebeat
-│   │   ├── README.md
-│   │   ├── files
-│   │   │   └── filebeat.yml
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_grafana
-│   │   ├── README.md
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_keepalived
-│   │   ├── README.md
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── keepalived.conf.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_mysql
-│   │   ├── README.md
-│   │   ├── files
-│   │   │   └── mysqldump.sh.j2
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   ├── docker-compose.yml.j2
-│   │   │   ├── my.cnf.j2
-│   │   │   └── mysqldump.sh.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_nfs_mount
-│   │   ├── README.md
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_nginx_exporter
-│   │   ├── README.md
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_nginx_reverse_proxy
-│   │   ├── README.md
-│   │   ├── files
-│   │   │   ├── default.conf
-│   │   │   ├── nginx.conf
-│   │   │   ├── project.local_ssl_cert.pem
-│   │   │   └── project.local_ssl_key.pem
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_node_exporter
-│   │   ├── README.md
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_pip
-│   │   ├── README.md
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   └── vars
-│   │       └── main.yml
-│   ├── deploy_prometheus
-│   │   ├── README.md
-│   │   ├── files
-│   │   │   └── prometheus.yml
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   │   └── docker-compose.yml.j2
-│   │   └── vars
-│   │       └── main.yml
-│   └── deploy_wordpress
-│       ├── README.md
-│       ├── files
-│       │   ├── default.conf
-│       │   └── nginx.conf
-│       ├── handlers
-│       │   └── main.yml
-│       ├── tasks
-│       │   └── main.yml
-│       ├── templates
-│       │   └── docker-compose.yml.j2
-│       └── vars
-│           └── main.yml
-├── terraform.tfstate
-├── terraform.tfstate.backup
-└── vars.tf
+Состав инфраструктуры:
+----------------------
+Основой инфраструктуры служит bare-metal сервера, которые представляют из себя кластер proxmox virtual environment (PVE). Вся разворачиваемая инфраструктура является совокупностью виртуальных машин, работающих внутри этого кластера. 
+|          роль сервера         | кол-во серверов | наименования серверов |                        реализация роли                       |
+|:-----------------------------:|:---------------:|:---------------------:|:------------------------------------------------------------:|
+| сервера балансировки нагрузки |        2        |       lb01, lb02      |                       keepalived, nginx                      |
+|     сервера веб-приложения    |        2        |      app01, app02     |                       nginx, wordpress                       |
+|      сервера баз данных      |        2        |       db01, db02      |                             mysql                            |
+|      сервера мониторинга      |        1        |         mon01         | node-exporter, cadvisor, nginx-exporter, prometheus, grafana |
+|      сервера логирования      |        1        |         log01         |           filebeat, logstash, elasticsearch, kibana          |
+
+Состав инструментов автоматизации:
+--------------------
+| инструмент |              роль             |
+|:----------:|:-----------------------------:|
+|  opentofu  | развертывание инфраструктуры  |
+|   ansible  |    настройка инфраструктуры   |
+
+Инструкция по развертыванию или аварийному восстановлению виртуальной инфраструктуры:
+---------------------
+Клонируйте данный репозиторий на сервер, с которого будут проводиться работы:
+```sh
+git clone git@github.com:MaxCurly/linux_base_2024_07_project.git
+```
+Перейдите в директорию клонированного репозитория:
+```sh
+cd ./linux_base_2024_07_project.git
+```
+Запустите инициализацию opentofy:
+```sh
+tofy init
+```
+Запустите планирование инфраструктуры при помощи tofu: 
+```sh
+tofy plan
+```
+Запустите развертывание инфраструктуры при помощи tofu: 
+```sh
+tofy apply
+```
+> Обратите внимание: сделайте паузу перед переходом к дальнейшим действиям (после развертывания сервера обновляют пакетнуюь базу в автоматическом режиме, обычно это занимает несколько минут)
+
+Запустите настройку серверов логирования при помощи ansible: 
+```sh
+ansible-playbook -i inventories/log/main.yml main.yml --ask-vault-pass
+```
+Запустите настройку серверов мониторинга при помощи ansible: 
+```sh
+ansible-playbook -i inventories/mon/main.yml main.yml --ask-vault-pass
+```
+Запустите настройку серверов баз данных при помощи ansible: 
+```sh
+ansible-playbook -i inventories/db/main.yml main.yml --ask-vault-pass
+```
+Запустите настройку серверов веб приложений при помощи ansible: 
+```sh
+ansible-playbook -i inventories/app/main.yml main.yml --ask-vault-pass
+```
+Запустите настройку серверов балансировки нагрузки при помощи ansible: 
+```sh
+ansible-playbook -i inventories/lb/main.yml main.yml --ask-vault-pass
+```
+
+Автор: MaxCurly (Maxim Kudryashov m.v.kudryashov@ya.ru)
