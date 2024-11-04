@@ -11,5 +11,6 @@ services:
     volumes:
       - {{ deploy_mysql_project_src }}/data:/var/lib/mysql:rw
       - {{ deploy_mysql_project_src }}:/etc/mysql/conf.d:rw
+#      - {{ deploy_mysql_data_src }}:/mnt:rw
     environment:
       MYSQL_ROOT_PASSWORD: {{ deploy_mysql_root_pass }}

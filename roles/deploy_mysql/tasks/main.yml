@@ -97,3 +97,24 @@
     priv: "{{ deploy_mysql_db_name }}.*:ALL"
     state: present
   when: deploy_mysql_role == "master"
+
+- name: template a file mysqldump.sh
+  ansible.builtin.template:
+    src: mysqldump.sh.j2
+    dest: "{{ deploy_mysql_project_src }}/mysqldump.sh"
+    owner: root
+    group: root
+    mode: '0744'
+    backup: true
+  when: deploy_mysql_role == "slave"
+
+- name: cron
+  ansible.builtin.cron:
+    name: mysqldump
+    weekday: "*"
+    month: "*"
+    day: "*"
+    hour: "*"
+    minute: "*"
+    user: root
+    job: "/etc/docker/mysql/mysqldump.sh"

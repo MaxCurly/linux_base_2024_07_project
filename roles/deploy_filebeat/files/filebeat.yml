@@ -11,7 +11,3 @@ filebeat.inputs:
 output.logstash:
   enabled: true
   hosts: ["10.10.5.108:5044"]
-
-setup.kibana:
-  host: "http://10.10.5.108:5601"
-  username: "test"
