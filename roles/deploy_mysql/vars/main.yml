@@ -2,6 +2,7 @@
 # vars file for deploy_mysql
 
 deploy_mysql_root_pass        : root
+deploy_mysql_data_src         : /mnt/nfs/mysql
 deploy_mysql_project_src      : /etc/docker/mysql
 deploy_mysql_image_version    : 8.0.39
 deploy_PyMySQL_ver            : 1.1.1
