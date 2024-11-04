@@ -11,11 +11,11 @@ Ansible роль "deploy_prometheus"
 Переменные для роли:
 --------------------
 
-deploy_prometheus_data_src      - рабочая директория для сохранения данных приложений
-
-deploy_prometheus_project_src   - рабочая директория для docker-compose-v2
-
-deploy_prometheus_image_version - версия docker обзара prometheus, которая будет развернута
+| переменная                      | описание                                                  |
+|---------------------------------|-----------------------------------------------------------|
+| deploy_prometheus_data_src      | рабочая директория для сохранения данных приложений       |
+| deploy_prometheus_project_src   | рабочая директория для docker-compose-v2                  |
+| deploy_prometheus_image_version | версия docker обзара prometheus, которая будет развернута |
 
 Информация об авторе:
 ---------------------

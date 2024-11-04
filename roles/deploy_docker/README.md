@@ -11,9 +11,10 @@ Ansible роль "deploy_docker"
 Переменные для роли:
 --------------------
 
-deploy_docker_docker_io_ver         - версия пакета docker docker.io, которая будет установлена
-
-deploy_docker_docker_compose_v2_ver - версия пакета docker-compose-v2, которая будет установлена
+| переменная                          | описание                                                   |
+|-------------------------------------|------------------------------------------------------------|
+| deploy_docker_docker_io_ver         | версия пакета docker docker.io, которая будет установлена  |
+| deploy_docker_docker_compose_v2_ver | версия пакета docker-compose-v2, которая будет установлена |
 
 Информация об авторе:
 ---------------------

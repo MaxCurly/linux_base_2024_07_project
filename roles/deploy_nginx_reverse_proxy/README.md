@@ -11,9 +11,10 @@ Ansible роль "deploy_nginx_reverse_proxy"
 Переменные для роли:
 --------------------
 
-deploy_nginx_project_src   - рабочая директория для docker-compose-v2
-
-deploy_nginx_image_version - версия docker обзара nginx, которая будет развернута
+| переменная                 | описание                                             |
+|----------------------------|------------------------------------------------------|
+| deploy_nginx_project_src   | рабочая директория для docker-compose-v2             |
+| deploy_nginx_image_version | версия docker обзара nginx, которая будет развернута |
 
 Информация об авторе:
 ---------------------

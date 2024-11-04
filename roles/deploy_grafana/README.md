@@ -11,11 +11,11 @@ Ansible роль "deploy_grafana"
 Переменные для роли:
 --------------------
 
-deploy_grafana_data_src      - рабочая директория для сохранения данных приложений
-
-deploy_grafana_project_src   - рабочая директория для docker-compose-v2
-
-deploy_grafana_image_version - версия docker обзара grafana, которая будет развернута
+| переменная                   | описание                                               |
+|------------------------------|--------------------------------------------------------|
+| deploy_grafana_data_src      | рабочая директория для сохранения данных приложений    |
+| deploy_grafana_project_src   | рабочая директория для docker-compose-v2               |
+| deploy_grafana_image_version | версия docker обзара grafana, которая будет развернута |
 
 Информация об авторе:
 ---------------------
