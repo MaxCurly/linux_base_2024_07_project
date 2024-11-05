@@ -38,7 +38,7 @@ for database in $( $mysql_custom -e  "SHOW DATABASES" );
                echo Backup for table $table of database $database is created | tee -a {{ deploy_mysql_data_src }}/mysql-backup$date_custom.log
           done
      done
-tar -zcvf mysql-backup.$date_custom.tar.gz {{ deploy_mysql_data_src }}/mysql-backup/ 1>>mysql-backup$date_custom.log 2>&1
+tar -zcvf {{ deploy_mysql_data_src }}/mysql-backup.$date_custom.tar.gz {{ deploy_mysql_data_src }}/mysql-backup/ 1>>mysql-backup$date_custom.log 2>&1
 echo Archive mysql-backup.$date_custom.tar.gz is created | tee -a {{ deploy_mysql_data_src }}/mysql-backup$date_custom.log
 rm -rf {{ deploy_mysql_data_src }}/mysql-backup 1>>mysql-backup$date_custom.log 2>&1
 echo Directory {{ deploy_mysql_data_src }}/mysql-backup is removed | tee -a {{ deploy_mysql_data_src }}/mysql-backup$date_custom.log

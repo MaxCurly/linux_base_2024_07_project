@@ -115,6 +115,6 @@
     month: "*"
     day: "*"
     hour: "*"
-    minute: "*"
+    minute: "0"
     user: root
     job: "/etc/docker/mysql/mysqldump.sh"
