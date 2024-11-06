@@ -1,12 +1,12 @@
 ---
 # tasks file for deploy_keepalived
 
-- name: install keepalived
+- name: install keepalived version={{ deploy_keepalived_ver }}
   ansible.builtin.apt:
     name: "keepalived={{ deploy_keepalived_ver }}"
     state: present
 
-- name: template a file keepalived.conf.j2
+- name: template a file /etc/keepalived/keepalived.conf
   ansible.builtin.template:
     src: keepalived.conf.j2
     dest: /etc/keepalived/keepalived.conf

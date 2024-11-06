@@ -11,9 +11,10 @@ Ansible роль "deploy_filebeat"
 Переменные для роли:
 --------------------
 
-deploy_filebeat_project_src   - рабочая директория для docker-compose-v2
-
-deploy_filebeat_image_version - версия docker обзара filebeat, которая будет развернута
+| переменная                    | описание                                                |
+|-------------------------------|---------------------------------------------------------|
+| deploy_filebeat_project_src   | рабочая директория для docker-compose-v2                |
+| deploy_filebeat_image_version | версия docker обзара filebeat, которая будет развернута |
 
 Информация об авторе:
 ---------------------

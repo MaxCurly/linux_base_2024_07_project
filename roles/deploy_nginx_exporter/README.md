@@ -11,9 +11,10 @@ Ansible роль "deploy_nginx_exporter"
 Переменные для роли:
 --------------------
 
-deploy_nginx_exporter_project_src   - рабочая директория для docker-compose-v2
-
-deploy_nginx_exporter_image_version - версия docker обзара nginx-exporter, которая будет развернута
+| переменная                          | описание                                                      |
+|-------------------------------------|---------------------------------------------------------------|
+| deploy_nginx_exporter_project_src   | рабочая директория для docker-compose-v2                      |
+| deploy_nginx_exporter_image_version | версия docker обзара nginx-exporter, которая будет развернута |
 
 Информация об авторе:
 ---------------------

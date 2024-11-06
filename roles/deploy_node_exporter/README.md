@@ -11,9 +11,10 @@ Ansible роль "deploy_node_exporter"
 Переменные для роли:
 --------------------
 
-deploy_node_exporter_project_src   - рабочая директория для docker-compose-v2
-
-deploy_node_exporter_image_version - версия docker обзара node-exporter, которая будет развернута
+| переменная                         | описание                                                     |
+|------------------------------------|--------------------------------------------------------------|
+| deploy_node_exporter_project_src   | рабочая директория для docker-compose-v2                     |
+| deploy_node_exporter_image_version | версия docker обзара node-exporter, которая будет развернута |
 
 Информация об авторе:
 ---------------------

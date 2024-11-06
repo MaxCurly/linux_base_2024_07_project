@@ -1,7 +1,7 @@
 ---
 # tasks file for deploy_docker
 
-- name: install docker.io and docker-compose-v2
+- name: install docker.io version={{ deploy_docker_docker_io_ver }} and docker-compose-v2 version={{ deploy_docker_docker_compose_v2_ver }}
   ansible.builtin.apt:
     name: 
       - "docker.io={{ deploy_docker_docker_io_ver }}"

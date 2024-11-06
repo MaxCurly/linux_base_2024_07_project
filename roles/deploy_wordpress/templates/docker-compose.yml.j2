@@ -12,6 +12,7 @@ services:
       - {{ deploy_wordpress_project_src }}/nginx.conf:/etc/nginx/nginx.conf:ro
       - {{ deploy_wordpress_project_src }}/conf.d/:/etc/nginx/conf.d:ro
       - {{ deploy_wordpress_data_src }}/html/:/var/www/html:ro
+      - /var/log/nginx:/var/log/nginx:rw
     environment:
       TZ: "Europe/Moscow"
 

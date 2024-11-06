@@ -1,38 +1,32 @@
-Role Name
+Ansible роль "deploy_mysql"
 =========
 
-A brief description of the role goes here.
+Данная роль служит для развертывания базы данных "mysql".
 
-Requirements
-------------
+Требования:
+-----------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+На целевом хосте должны быть установлены пакеты docker.io и docker-compose-v2.
 
-Role Variables
---------------
+Переменные для роли:
+--------------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| переменная                 | описание                                                             |
+|----------------------------|----------------------------------------------------------------------|
+| deploy_mysql_root_pass     | пароль root пользователя для mysql                                   |
+| deploy_mysql_data_src      | рабочая директория для сохранения данных приложений                  |
+| deploy_mysql_project_src   | рабочая директория для docker-compose-v2                             |
+| deploy_mysql_image_version | версия docker обзара mysql, которая будет развернута                 |
+| deploy_PyMySQL_ver         | версия пекета PyMySQL, которая будет установлена                     |
+| deploy_sql_master_ip       | ip адресс основного сервера базы данных                              |
+| deploy_sql_slave_ip        | ip адресс второстипенного сервера базы данных                        |
+| deploy_mysql_replica_user  | пользователь mysql, используемый для master-slave репликации         |
+| deploy_mysql_replica_pass  | пароль пользователя mysql, используемого для master-slave репликации |
+| deploy_mysql_db_name       | имя базы данных                                                      |
+| deploy_mysql_db_user       | имя пользователя для доступа к базе данных                           |
+| deploy_mysql_db_password   | пароль пользователя для доступа к базе данных                        |
 
-Dependencies
-------------
+Информация об авторе:
+---------------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Автор: MaxCurly (Maxim Kudryashov m.v.kudryashov@ya.ru)

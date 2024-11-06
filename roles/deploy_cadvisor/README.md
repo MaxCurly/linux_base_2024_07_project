@@ -11,9 +11,10 @@ Ansible роль "deploy_cadvisor"
 Переменные для роли:
 --------------------
 
-deploy_cadvisor_project_src   - рабочая директория для docker-compose-v2
-
-deploy_cadvisor_image_version - версия docker обзара cadvisor, которая будет развернута
+| переменная                    | описание                                                             |
+|-------------------------------|----------------------------------------------------------------------|
+| deploy_cadvisor_project_src   | рабочая директория для docker-compose-v2                             |
+| deploy_cadvisor_image_version | версия docker обзара cadvisor, которая будет развернута              |
 
 Информация об авторе:
 ---------------------

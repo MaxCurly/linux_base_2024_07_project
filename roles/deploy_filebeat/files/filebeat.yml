@@ -4,6 +4,7 @@ filebeat.inputs:
   enabled: true
   paths:
     - /var/log/*.log
+    - /var/log/nginx/*.log
     - /var/lib/docker/containers/*/*.log
   exclude_files: ['.gz$']
   prospector.scanner.exclude_files: ['.gz$']

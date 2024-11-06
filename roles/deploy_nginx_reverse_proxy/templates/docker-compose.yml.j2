@@ -15,5 +15,6 @@ services:
       - {{ deploy_nginx_project_src }}/conf.d/:/etc/nginx/conf.d:ro
       - {{ deploy_nginx_project_src }}/ssl/:/etc/nginx/ssl:ro
       - {{ deploy_nginx_project_src }}/html/:/usr/share/nginx/html:ro
+      - /var/log/nginx:/var/log/nginx:rw
     environment:
       TZ: "Europe/Moscow"

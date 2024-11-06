@@ -11,15 +11,13 @@ Ansible роль "deploy_elk"
 Переменные для роли:
 --------------------
 
-deploy_elk_data_src                    - рабочая директория для сохранения данных приложений
-
-deploy_elk_project_src                 - рабочая директория для docker-compose-v2
-
-deploy_elk_elasticsearch_image_version - версия docker обзара elasticsearch, которая будет развернута
-
-deploy_elk_logstash_image_version      - версия docker обзара logstash, которая будет развернута
-
-deploy_elk_kibana_image_version        - версия docker обзара kibana, которая будет развернута
+| переменная                             | описание                                                     |
+|----------------------------------------|--------------------------------------------------------------|
+| deploy_elk_data_src                    | рабочая директория для сохранения данных приложений          |
+| deploy_elk_project_src                 | рабочая директория для docker-compose-v2                     |
+| deploy_elk_elasticsearch_image_version | версия docker обзара elasticsearch, которая будет развернута |
+| deploy_elk_logstash_image_version      | версия docker обзара logstash, которая будет развернута      |
+| deploy_elk_kibana_image_version        | версия docker обзара kibana, которая будет развернута        |
 
 Информация об авторе:
 ---------------------
