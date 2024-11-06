@@ -1,12 +1,12 @@
 ---
 # tasks file for deploy_nfs_mount
 
-- name: install nfs-common
+- name: install nfs-common version={{ deploy_nfs_mount_nfs_common_ver }}
   ansible.builtin.apt:
     name: "nfs-common={{ deploy_nfs_mount_nfs_common_ver }}"
     state: present
 
-- name: create a directory
+- name: create a directory {{ deploy_nfs_moumt_dst }}
   ansible.builtin.file:
     path: "{{ deploy_nfs_moumt_dst }}"
     state: directory
@@ -14,7 +14,7 @@
     owner: nobody
     group: nogroup
 
-- name: mount nfs
+- name: mount nfs {{ deploy_nfs_moumt_src }} to {{ deploy_nfs_moumt_dst }}
   ansible.posix.mount:
     src: "{{ deploy_nfs_moumt_src }}"
     path: "{{ deploy_nfs_moumt_dst }}"
