@@ -1,6 +1,11 @@
 ---
 # tasks file for deploy_mysql
 
+- name: install mysql-client version={{ deploy_mysql_mysql_client_ver }}
+  ansible.builtin.apt:
+    name: "mysql-client={{ deploy_mysql_mysql_client_ver }}"
+    state: present
+
 - name: create a directory {{ deploy_mysql_project_src }}
   ansible.builtin.file:
     path: "{{ deploy_mysql_project_src }}"
@@ -118,3 +123,26 @@
     minute: "0"
     user: root
     job: "/etc/docker/mysql/mysqldump.sh"
+  when: deploy_mysql_role == "slave"
+
+#- name: Dump database {{ deploy_mysql_db_name }}
+#  community.mysql.mysql_db:
+#    login_host: "{{ deploy_sql_master_ip }}"
+#    login_user: root
+#    login_password: "{{ deploy_mysql_root_pass }}"
+#    name: "{{ deploy_mysql_db_name }}"
+#    state: dump
+#    target: /mnt/nfs/mysql/backup/wordpress.sql
+#    force: true
+#  when: deploy_mysql_role == "master"
+
+#- name: import database {{ deploy_mysql_db_name }}
+#  community.mysql.mysql_db:
+#    login_host: "{{ deploy_sql_master_ip }}"
+#    login_user: root
+#    login_password: "{{ deploy_mysql_root_pass }}"
+#    name: "{{ deploy_mysql_db_name }}"
+#    state: import
+#    target: /mnt/nfs/mysql/backup/wordpress.sql
+#    force: true
+#  when: deploy_mysql_role == "master"
