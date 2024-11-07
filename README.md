@@ -29,7 +29,7 @@ git clone git@github.com:MaxCurly/linux_base_2024_07_project.git
 ```
 Перейдите в директорию клонированного репозитория:
 ```sh
-cd ./linux_base_2024_07_project.git
+cd ./linux_base_2024_07_project
 ```
 Запустите инициализацию opentofy:
 ```sh
