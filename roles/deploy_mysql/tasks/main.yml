@@ -1,10 +1,10 @@
 ---
 # tasks file for deploy_mysql
 
-- name: install mysql-client version={{ deploy_mysql_mysql_client_ver }}
-  ansible.builtin.apt:
-    name: "mysql-client={{ deploy_mysql_mysql_client_ver }}"
-    state: present
+#- name: install mysql-client version={{ deploy_mysql_mysql_client_ver }}
+#  ansible.builtin.apt:
+#    name: "mysql-client={{ deploy_mysql_mysql_client_ver }}"
+#    state: present
 
 - name: create a directory {{ deploy_mysql_project_src }}
   ansible.builtin.file:
